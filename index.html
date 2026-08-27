@@ -1,1 +1,33 @@
-My first AI project
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Helper</title>
+</head>
+
+<body>
+    <h1>🤖 AI Helper</h1>
+
+    <p>כתוב משהו:</p>
+
+    <textarea id="input" rows="6" cols="40"
+        placeholder="כתוב כאן..."></textarea>
+
+    <br><br>
+
+    <button onclick="answer()">שלח</button>
+
+    <h2>תשובה:</h2>
+    <p id="output">כאן תופיע התשובה.</p>
+
+    <script>
+        function answer() {
+            const text = document.getElementById("input").value;
+
+            document.getElementById("output").innerText =
+                "קיבלתי את מה שכתבת: " + text;
+        }
+    </script>
+</body>
+</html>
