@@ -5,28 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Helper</title>
 </head>
-
 <body>
     <h1>🤖 AI Helper</h1>
 
-    <p>כתוב משהו:</p>
-
     <textarea id="input" rows="6" cols="40"
-        placeholder="כתוב כאן..."></textarea>
+        placeholder="כתוב כאן את הבקשה שלך..."></textarea>
 
     <br><br>
 
     <button onclick="answer()">שלח</button>
 
-    <h2>תשובה:</h2>
-    <p id="output">כאן תופיע התשובה.</p>
+    <h2>תוצאה:</h2>
+    <p id="output"></p>
 
     <script>
         function answer() {
-            const text = document.getElementById("input").value;
+            const text = document.getElementById("input").value.trim();
+
+            if (!text) {
+                document.getElementById("output").innerText =
+                    "כתוב משהו קודם 🙂";
+                return;
+            }
 
             document.getElementById("output").innerText =
-                "קיבלתי את מה שכתבת: " + text;
+                "הבקשה שלך התקבלה: " + text;
         }
     </script>
 </body>
