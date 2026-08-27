@@ -3,37 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Helper</title>
+<title>Business Idea Helper</title>
 </head>
 
 <body>
-<h1>🤖 AI Helper</h1>
-<p>הכלי הראשון שלי</p>
 
-<textarea id="input" rows="6" cols="35"
-placeholder="כתוב כאן..."></textarea>
+<h1>💡 Business Idea Helper</h1>
+
+<p>כתוב רעיון לעסק:</p>
+
+<textarea id="idea" rows="5" cols="35"
+placeholder="לדוגמה: שירות ניקוי רכבים"></textarea>
 
 <br><br>
 
-<button onclick="answer()">בדוק</button>
+<button onclick="generate()">צור תוכנית</button>
 
-<h2>תוצאה:</h2>
-<p id="output"></p>
+<h2>התוצאה:</h2>
+
+<div id="result"></div>
 
 <script>
-function answer() {
-    let text = document.getElementById("input").value;
+function generate() {
 
-    if (text.includes("עסק")) {
-        document.getElementById("output").innerText =
-        "רעיון: שירות שעוזר לעסקים לחסוך זמן במשימות חוזרות.";
-    } else if (text.includes("רעיון")) {
-        document.getElementById("output").innerText =
-        "רעיון: כלי שעוזר לאנשים לארגן מידע בצורה אוטומטית.";
-    } else {
-        document.getElementById("output").innerText =
-        "קיבלתי: " + text;
+    const idea = document.getElementById("idea").value.trim();
+    const result = document.getElementById("result");
+
+    if (!idea) {
+        result.innerText = "כתוב רעיון קודם 🙂";
+        return;
     }
+
+    result.innerHTML =
+        "<b>הרעיון:</b> " + idea +
+        "<br><br>" +
+        "<b>קהל יעד:</b> אנשים שצריכים את השירות הזה." +
+        "<br><br>" +
+        "<b>איך אפשר להרוויח:</b> לגבות תשלום עבור השירות." +
+        "<br><br>" +
+        "<b>צעד ראשון:</b> למצוא 5 אנשים שיכולים להיות לקוחות ולבדוק אם הם באמת מעוניינים.";
+
 }
 </script>
 
