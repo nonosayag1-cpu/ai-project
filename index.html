@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Helper</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Helper</title>
 </head>
+
 <body>
-    <h1>🤖 AI Helper</h1>
+<h1>🤖 AI Helper</h1>
 
-    <textarea id="input" rows="6" cols="40"
-        placeholder="כתוב כאן את הבקשה שלך..."></textarea>
+<textarea id="input" rows="6" cols="40"
+placeholder="כתוב כאן..."></textarea>
 
-    <br><br>
+<br><br>
 
-    <button onclick="answer()">שלח</button>
+<button onclick="answer()">שלח</button>
 
-    <h2>תוצאה:</h2>
-    <p id="output"></p>
+<h2>תשובה:</h2>
+<p id="output"></p>
 
-    <script>
-        function answer() {
-            const text = document.getElementById("input").value.trim();
+<script>
+function answer() {
+    const text = document.getElementById("input").value.trim();
+    const output = document.getElementById("output");
 
-            if (!text) {
-                document.getElementById("output").innerText =
-                    "כתוב משהו קודם 🙂";
-                return;
-            }
+    if (!text) {
+        output.innerText = "כתוב משהו קודם 🙂";
+        return;
+    }
 
-            document.getElementById("output").innerText =
-                "הבקשה שלך התקבלה: " + text;
-        }
-    </script>
+    if (text.includes("רעיון") || text.includes("עסק")) {
+        output.innerText =
+            "רעיון: שירות שעוזר לעסקים להפוך משימות חוזרות לאוטומטיות.";
+    } else if (text.includes("שלום") || text.includes("היי")) {
+        output.innerText =
+            "שלום! 👋 איך אפשר לעזור?";
+    } else {
+        output.innerText =
+            "קיבלתי: " + text + "\n\nאני עדיין גרסה ראשונית, אבל נמשיך לשדרג אותי.";
+    }
+}
+</script>
+
 </body>
 </html>
