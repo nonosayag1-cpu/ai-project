@@ -8,36 +8,31 @@
 
 <body>
 <h1>🤖 AI Helper</h1>
+<p>הכלי הראשון שלי</p>
 
-<textarea id="input" rows="6" cols="40"
+<textarea id="input" rows="6" cols="35"
 placeholder="כתוב כאן..."></textarea>
 
 <br><br>
 
-<button onclick="answer()">שלח</button>
+<button onclick="answer()">בדוק</button>
 
-<h2>תשובה:</h2>
+<h2>תוצאה:</h2>
 <p id="output"></p>
 
 <script>
 function answer() {
-    const text = document.getElementById("input").value.trim();
-    const output = document.getElementById("output");
+    let text = document.getElementById("input").value;
 
-    if (!text) {
-        output.innerText = "כתוב משהו קודם 🙂";
-        return;
-    }
-
-    if (text.includes("רעיון") || text.includes("עסק")) {
-        output.innerText =
-            "רעיון: שירות שעוזר לעסקים להפוך משימות חוזרות לאוטומטיות.";
-    } else if (text.includes("שלום") || text.includes("היי")) {
-        output.innerText =
-            "שלום! 👋 איך אפשר לעזור?";
+    if (text.includes("עסק")) {
+        document.getElementById("output").innerText =
+        "רעיון: שירות שעוזר לעסקים לחסוך זמן במשימות חוזרות.";
+    } else if (text.includes("רעיון")) {
+        document.getElementById("output").innerText =
+        "רעיון: כלי שעוזר לאנשים לארגן מידע בצורה אוטומטית.";
     } else {
-        output.innerText =
-            "קיבלתי: " + text + "\n\nאני עדיין גרסה ראשונית, אבל נמשיך לשדרג אותי.";
+        document.getElementById("output").innerText =
+        "קיבלתי: " + text;
     }
 }
 </script>
